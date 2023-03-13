@@ -1,10 +1,10 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
-void multiply(int *a,int &n,int no){
-    int carry = 0;
+void multiply(int a[],int &n,int no){
+    int carry=0;
     for(int i=0;i<n;i++){
-        int product = a[i]*no + carry;
+        int product = a[i]*no +carry;
         a[i] = product%10;
         carry = product/10;
     }
@@ -17,15 +17,12 @@ void multiply(int *a,int &n,int no){
 }
 
 void big_factorial(int number){
-    int *a = new int[1000];
-    for(int i=0;i<1000;i++){
-        a[i] = 0;
-    }
+    int a[1000] = {0};
 
     a[0]=1;
     int n=1;
 
-    for(int i=2;i<=number;i++){
+    for(int i=2; i<=number;i++){
         multiply(a,n,i);
     }
 
@@ -34,12 +31,12 @@ void big_factorial(int number){
         cout<<a[i]<<" ";
     }
 
+    return;
 }
 
 int main() {
     int n;
     cin>>n;
-
     big_factorial(n);
 
     return 0;
